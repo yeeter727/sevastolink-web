@@ -1,57 +1,79 @@
 // postload.js
 
 const folders = document.querySelectorAll('.folder');
-const label   = document.querySelector('.folders-label');
 const header  = document.getElementById('content-header-bar');
+const header2  = document.getElementById('content-header-bar2');
 const body    = document.getElementById('content-body');
+const headerItems = document.querySelectorAll('.header-item');
+
+import * as config from "../config.js";
 
 function calculateVLength(folder) {
-  const labelTop     = label.getBoundingClientRect().top;
-  const folderMiddle = folder.getBoundingClientRect().top + folder.offsetHeight / 2;
-  return folderMiddle - labelTop;
+  const activeHeader = document.querySelector('.header-item.active');
+  if (!activeHeader) return 0;
+
+  const headerTop   = activeHeader.getBoundingClientRect().top + activeHeader.offsetHeight / 2;
+  const folderMid   = folder.getBoundingClientRect().top + folder.offsetHeight / 2;
+
+  return folderMid - headerTop + 3;
+}
+
+function calculateInactiveVLength(folder) {
+  const inactiveHeader = document.querySelector('.header-item:not(.active)');
+  if (!inactiveHeader) return 0;
+
+  const headerTop   = inactiveHeader.getBoundingClientRect().top + inactiveHeader.offsetHeight / 2;
+  const folderMid   = folder.getBoundingClientRect().top + folder.offsetHeight / 2;
+
+  return folderMid - headerTop + 3;
 }
 
 function activateFolder(folder) {
+  headerItems.forEach(h => {
+    h.classList.remove('active');
+  });
+  //const h1 = document.getElementById('content-header-bar');
+  header.classList.add('active');
+
   folders.forEach(f => {
     f.classList.remove('active');
     f.style.removeProperty('--v-length');
+    f.style.removeProperty('--iv-length');
   });
   folder.classList.add('active');
   folder.style.setProperty('--v-length', `${calculateVLength(folder)}px`);
-
+  folder.style.setProperty('--iv-length', `${calculateInactiveVLength(folder)}px`);
+  
 
   body.style.padding  = '4vh 2vw 2vh 2vw';
   body.style.flex     = '';
   body.style.position = '';
 
+  const title_object = folder.querySelector('.folder-text');
   const title = folder.querySelector('.folder-text').textContent;
-  if (title === 'ABOUT ME') {
-    header.textContent = 'MUNZIR AHMED';
-    body.innerHTML = `Hi, I'm Munzir Ahmed and I'm a Computer Science student based in London.
-
-This website is inspired by the Sevastolink Terminals from Alien: Isolation — one of my favourite games of all time. Recreating the terminal was just as fun as playing through the game itself.
-
-I have a strong profieciency in using React (although this website did not require it) alongside HTML, CSS & JS. Java & Python are also additional  languages that I am confident programming in.
-
-You can also check out my:
-
-<a href="https://github.com/ahmedmunzir" target="_blank" style="color: #05b669; text-decoration: none;">GitHub</a>      &         <a href="https://www.linkedin.com/in/munzir-ahmed-392034328/" target="_blank" style="color: #05b669; text-decoration: none;">LinkedIn</a>
-
-- Munzir Ahmed`;
+  if (title === 'f1' || title === config.personal_folder_title) {
+    title_object.textContent = config.personal_folder_title;
+    header.textContent = config.personal1_title;
+    header2.textContent = config.personal2_title;
+    body.innerHTML = config.personal1_body;
   }
-  else if (title === 'PORTFOLIO') {
-    header.textContent = 'PROJECTS';
-    body.innerHTML = `• Retro Terminal Portfolio (this site)
-    <a href="https://github.com/ahmedmunzir/HorseInventory" target="_blank" style="color: #05b669; text-decoration: none;">
-     • Horse-Inventory</a> - A Java plugin for multiplayer Minecraft servers
-    <a href="https://github.com/ahmedmunzir/java-calculator" target="_blank" style="color: #05b669; text-decoration: none;">
-     • Java-Calculator</a> - A simple calculator frontend written in Java
-    
-    More coming soon...`;
+  else if (title === 'f2' || title === config.shared_folder_title) {
+    title_object.textContent = config.shared_folder_title;
+    header.textContent = config.shared1_title;
+    header2.textContent = config.shared2_title;
+    body.innerHTML = config.shared1_body;
   }
-  else if (title === 'EXTRA') {
-    header.textContent = 'PONG';
-    body.innerHTML = `<canvas id="pongCanvas"></canvas>`;
+  else if (title === 'f3' || title === config.notes_folder_title) {
+  title_object.textContent = config.notes_folder_title;
+  header.textContent = config.notes1_title;
+  header2.textContent = config.notes2_title;
+  body.innerHTML = config.notes1_body;
+  }
+  else if (title === 'f4' || title === config.utility_folder_title) {
+    title_object.textContent = config.utility_folder_title;
+    header.textContent = config.utility1_title;
+    header2.textContent = config.utility2_title;
+    body.innerHTML = config.utility1_body;
     body.style.padding  = '0';
     body.style.flex     = '1';
     body.style.position = 'relative';
@@ -61,6 +83,16 @@ You can also check out my:
     header.textContent = title;
     body.innerHTML = `<p>Loading...</p>`;
   }
+  
+  headerItems.forEach(item => {
+    const text = item.textContent.trim();
+    if (!text) {
+      item.classList.add('empty');
+    }
+    else {
+      item.classList.remove('empty');
+    }
+  });
 }
 
 function recalculateActiveLine() {
@@ -68,10 +100,90 @@ function recalculateActiveLine() {
   if (!active) return;
   active.style.setProperty('--v-length', `${calculateVLength(active)}px`);
 }
+function recalculateInactiveLine() {
+  const active = document.querySelector('.folder.active');
+  if (!active) return;
+  active.style.setProperty('--iv-length', `${calculateInactiveVLength(active)}px`);
+}
+
+// preemptively replace folder titles
+folders.forEach(f => {
+     const title = f.querySelector('.folder-text').textContent;
+     const title_object = f.querySelector('.folder-text');
+     if (title === 'f1' || title === config.personal_folder_title) {
+       title_object.textContent = config.personal_folder_title;
+     }
+     else if (title === 'f2' || title === config.shared_folder_title) {
+       title_object.textContent = config.shared_folder_title;
+     }
+     else if (title === 'f3' || title === config.notes_folder_title) {
+       title_object.textContent = config.notes_folder_title;
+     }
+     else if (title === 'f4' || title === config.utility_folder_title) {
+       title_object.textContent = config.utility_folder_title;
+     }
+});
 
 folders.forEach(f => f.addEventListener('click', () => activateFolder(f)));
 window.addEventListener('resize', recalculateActiveLine);
 document.addEventListener('fullscreenchange', recalculateActiveLine);
+window.addEventListener('resize', recalculateInactiveLine);
+document.addEventListener('fullscreenchange', recalculateInactiveLine);
+
+const top_bar = document.querySelector('.top-bar-text')
+top_bar.innerHTML = config.top_bar_content
+
+/////////// added secondary entry
+
+function activateHeader(item) {
+  const title = item.textContent;
+  if (!title) return;
+  headerItems.forEach(h => h.classList.remove('active'));
+  item.classList.add('active');
+
+
+  if (title === config.personal1_title) {
+    body.innerHTML = config.personal1_body;
+  }
+  else if (title === config.personal2_title) {
+    body.innerHTML = config.personal2_body;
+  } 
+  else if (title === config.shared1_title) {
+    body.innerHTML = config.shared1_body;
+  } 
+  else if (title === config.shared2_title) {
+    body.innerHTML = config.shared2_body;
+  } 
+  else if (title === config.notes1_title) {
+    body.innerHTML = config.notes1_body;
+  } 
+  else if (title === config.notes2_title) {
+    body.innerHTML = config.notes2_body;
+  } 
+  else if (title === config.utility1_title) {
+    body.innerHTML = config.utility1_body;
+    body.style.padding  = '0';
+    body.style.flex     = '1';
+    body.style.position = 'relative';
+    startPong();
+  } 
+  else if (title === config.utility2_title) {
+    body.innerHTML = config.utility2_body;
+    body.style.padding  = '4vh 2vw 2vh 2vw';
+    body.style.flex     = '';
+    body.style.position = '';
+  } 
+  else {
+    body.innerHTML = `<p>Loading...</p>`;
+  }
+}
+
+headerItems.forEach(item => {
+  item.addEventListener('click', () => activateHeader(item));
+  item.addEventListener('click', () => recalculateActiveLine()); 
+  item.addEventListener('click', () => recalculateInactiveLine());
+});
+//////////
 
 const defaultActive = document.querySelector('.folder.active');
 if (defaultActive) activateFolder(defaultActive);

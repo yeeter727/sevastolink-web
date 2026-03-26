@@ -1,7 +1,21 @@
 @font-face {
   font-family: 'Sevastolink';
-  src: url('Fonts/jixellation.ttf') format('truetype');
+  src: url('fonts/jixellation.ttf') format('truetype');
   font-display: swap;
+}
+
+@font-face {
+  font-family: 'Seegson';
+  src: url('fonts/sound-system.otf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sevastopol Interface Regular';
+  src: url('fonts/sevastopol_interface.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html, body {
@@ -13,6 +27,27 @@ html, body {
   background: #0c290c;
   font-family: 'Sevastolink', monospace;
   color: #05b669;
+}
+
+.seegson {
+  font-size: 70px;
+  font-family: 'Seegson';
+  letter-spacing: 2px;
+}
+
+#mynotes {
+  resize: none;
+  outline: none;
+  border: none; 
+  background: #0c290c;
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  font-family: 'Sevastopol Interface Regular';
+  font-size: 1.6vw;
+  color: #ccd5d4;
+  line-height: 1.1;
+  white-space: pre-line;
 }
 
 #screen {
@@ -84,7 +119,7 @@ html, body {
   border: 0.2vw solid #05b669;
   background: transparent;
   width: 18vw;
-  height: 8.9vw;
+  height: 6.9vw;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -126,7 +161,7 @@ html, body {
   position: absolute;
   top: 50%;
   width: 0.9vw;
-  height: 9.25vw;
+  height: 7.20vw;
   background: #ccd5d4;
   transform: translateY(-50%);
 }
@@ -170,27 +205,95 @@ html, body {
   display: block;
 }
 
+.inactive-connector-vertical,
+.inactive-connector-top-right {
+  border-left: 0.2vw solid #ccd5d4;
+  border-top: 2px dotted #05b669;
+  position: absolute;
+  /* background: #ccd5d4;
+  border-style: dotted;
+  border-color: red; */
+  display: none;
+}
 
-.content-header-bar {
+.inactive-connector-vertical {
+  left: calc(100% + 2.8vw);
+  width: 0.2vw;
+  top: calc(50% - var(--iv-length, 0));
+  height: var(--iv-length, 0);
+  z-index: -1;
+}
+
+.inactive-connector-top-right {
+  left: calc(100% + 2.8vw);
+  width: 1.0vw;
+  height: 0.2vw;
+  top: calc(50% - var(--iv-length, 0));
+  z-index: 2;
+}
+
+.folder.active .inactive-connector-vertical,
+.folder.active .inactive-connector-top-right {
+  display: block;
+}
+
+.header-list {
   position: absolute;
   top: 18vh;
   left: 28.5vw;
   width: 60vw;
   height: 4vh;
-  background: #054B1C;
-  color: #fff;
+  z-index: 4;
+}
+
+.header-item {
+  position: relative;
+  width: 60vw;
+  height: 4vh;
   font-size: 1vw;
-  padding: 0.5vh 1vw;
+  padding: 0.5vh 1vw;    
   display: flex;
   align-items: center;
+  z-index: 4; 
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.header-item.active {
+  color: #fff;
+  background: #054B1C;
   border: 0.15vw solid #ccd5d4;
   z-index: 4;
+}
+
+.header-item:not(.active) {
+  color: #fff;
+  background: #0c290c;
+  border: 0.15vw solid #07421a;
+  z-index: 4;
+}
+
+.header-item:not(.active):not(.empty):hover {
+  border-color: #ccd5d4;
+  background-color: #05b669;
+  cursor: pointer;
+}
+
+.header-item.empty {
+  cursor: default;
+}
+
+#content-header-bar {
+  top: -0.5vh;
+}
+
+#content-header-bar2 {
+  top: 0.5vh;
 }
 
 
 .content-panel {
   position: absolute;
-  top: calc(18vh + 8vh);
+  top: calc(18vh + 13vh);
   left: 28.5vw;
   width: 62vw;
   min-height: 58.5vh;
@@ -216,10 +319,11 @@ html, body {
 }
 
 .content-body {
+  font-family: 'Sevastopol Interface Regular';
   padding: 4vh 2vw 2vh 2vw;
-  font-size: 1vw;
+  font-size: 1.6vw;
   color: #ccd5d4;
-  line-height: 1.6;
+  line-height: 1.1;
   white-space: pre-line;
 
  

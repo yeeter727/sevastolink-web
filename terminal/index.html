@@ -4,9 +4,9 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>munzirahmed.dev</title>
-  <link rel="icon" type="image/x-icon" href="images/fav.svg">
-  <link rel="stylesheet" href="postload.css" />
+  <title>SEVASTOLINK</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/postload.css" />
 
   <style>
     html, body {
@@ -93,31 +93,50 @@
     <div class="interface" id="interface">
       <div class="top-bar"></div>
       <div class="top-bar-extension"></div>
+      <!-- this field can be customized in config.js -->
       <div class="top-bar-text">PERSONAL TERMINAL</div>
 
       <div class="folders-label">FOLDERS</div>
       <div class="folders-list">
         <div class="folder active">
-          <div class="folder-inner"><div class="folder-text">ABOUT ME</div></div>
+	      <!-- Note: If you want to change folder titles, do it in config.js -->
+          <div class="folder-inner"><div class="folder-text">f1</div></div>
           <div class="connector-line"></div>
           <div class="connector-vertical"></div>
           <div class="connector-top-right"></div>
+          <div class="inactive-connector-vertical"></div>
+          <div class="inactive-connector-top-right"></div>
         </div>
         <div class="folder">
-          <div class="folder-inner"><div class="folder-text">PORTFOLIO</div></div>
+          <div class="folder-inner"><div class="folder-text">f2</div></div>
           <div class="connector-line"></div>
           <div class="connector-vertical"></div>
           <div class="connector-top-right"></div>
+          <div class="inactive-connector-vertical"></div>
+          <div class="inactive-connector-top-right"></div>
         </div>
         <div class="folder">
-          <div class="folder-inner"><div class="folder-text">EXTRA</div></div>
+          <div class="folder-inner"><div class="folder-text">f3</div></div>
           <div class="connector-line"></div>
           <div class="connector-vertical"></div>
           <div class="connector-top-right"></div>
+          <div class="inactive-connector-vertical"></div>
+          <div class="inactive-connector-top-right"></div>
+        </div>
+        <div class="folder">
+          <div class="folder-inner"><div class="folder-text">f4</div></div>
+          <div class="connector-line"></div>
+          <div class="connector-vertical"></div>
+          <div class="connector-top-right"></div>
+          <div class="inactive-connector-vertical"></div>
+          <div class="inactive-connector-top-right"></div>
         </div>
       </div>
 
-      <div class="content-header-bar" id="content-header-bar">MUNZIR AHMED</div>
+      <div class="header-list">
+        <div class="header-item active" id="content-header-bar">entry 1</div>
+        <div class="header-item" id="content-header-bar2">entry 2</div>
+      </div>
 
       <div class="content-panel" id="content-panel">
         <div class="content-body" id="content-body">
@@ -125,8 +144,8 @@
         </div>
       </div>
     </div>
-    <img src="images/scanlines.png" id="scan" />
-    <img src="images/bezel.png" id="bezel" />
+    <img src="/images/scanlines.png" id="scan" />
+    <img src="/images/bezel.png" id="bezel" />
   </div>
 
   <script>
@@ -137,9 +156,19 @@
       document.getElementById('grid').style.display = 'none';
       document.getElementById('interface').style.display = 'block';
       const script = document.createElement('script');
-      script.src = 'postload.js';
+      script.src = '/postload.js';
+      script.type = 'module';
       document.body.appendChild(script);
     }, 225);
   </script>
+
+  <script>
+  // added by me: Check if the page was reloaded
+  const navigationEntries = performance.getEntriesByType("navigation");
+  if (navigationEntries.length > 0 && navigationEntries[0].type === "reload") {
+    window.location.replace("/");
+  }
+  </script>
+
 </body>
 </html>

@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>munzirahmed.dev</title>
+  <title>SEVASTOLINK</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="prefetch" href="postload.html">
-  <link rel="icon" type="image/x-icon" href="images/fav.svg">
+  <link rel="prefetch" href="terminal/index.html">
+  <link rel="prefetch" href="postload.js">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
   <div id="screen">
     <img src="images/scanlines.png" id="scan">
     <img src="images/bezel.png" id="bezel">
 
-
     <div id="header">
-      <div id="logo">SEVASTOLINK</div>
-      <div id="subheading">AN LM-LINK PRODUCT</div>
+        <img id="logo" src="images/sevastolink_logo.gif">
+	<div id="subheading">AN LM-LINK PRODUCT</div>
     </div>
 
     <!-- Loading Bar -->
@@ -26,8 +24,17 @@
       <div class="progress-bar"></div>
     </div>
 
-    <div id="footer">© LM-LINK DATA SYSTEMS</div>
+	<div id="footer">© LM-LINK DATA SYSTEMS</div>
   </div>
-  <script src="script.js"></script>
+  <script type="text/javascript">
+	window.addEventListener('load', () => {
+  	const bar = document.querySelector('.progress-bar');
+
+  	// When the loading bar animation ends, jump directly to /terminal/
+  	bar.addEventListener('animationend', () => {
+    	window.location.href = '/terminal/';
+  	}, { once: true });
+	});
+  </script>
 </body>
 </html>
