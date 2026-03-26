@@ -14,4 +14,4 @@ List of modifications made:
 ![term preview](/images/term_fullscreen_preview.png)
 
 ### Disclaimer
- Note: I take no credit in the majority of these files or do I expect to be credited, as the majority of these files were sourced from this repo: https://github.com/ahmedmunzir/Sevastolink-Terminal
+ Note: I take no credit in the majority of these files nor do I expect to be credited, as the majority of these files were sourced from this repo: https://github.com/ahmedmunzir/Sevastolink-Terminal
