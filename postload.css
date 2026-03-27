@@ -73,10 +73,11 @@ html, body {
   left: calc(6vw + 86vw);
   width: 3vw;
   height: 5vh;
-  background: #0c290c;
-  border-top: 0.15vw solid #05b669;
-  border-bottom: 0.15vw solid #05b669;
-  border-right: 0.15vw solid #05b669;
+  background: #29662f;
+  border-top: 0.25vw solid #05b669;
+  border-bottom: 0.25vw solid #05b669;
+  border-right: 0.40vw solid #05b669;
+  border-left: 0.8vw solid #05b669;
   box-sizing: border-box;
   z-index: 0;
 }
