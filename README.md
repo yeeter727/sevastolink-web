@@ -11,7 +11,7 @@ List of modifications made:
 ### Preview https://yeeter727.github.io/sevastolink-web/
 ![logo preview](/images/sevastolink_logo_repeat.gif)
 ![boot preview](/images/boot_fullscreen_preview.png)
-![term preview](/images/term_fullscreen_preview.png)
+![term preview, test](/images/term_fullscreen_preview.png)
 
 ### Disclaimer
  Note: I take no credit in the majority of these files nor do I expect to be credited, as the majority of these files were sourced from this repo: https://github.com/ahmedmunzir/Sevastolink-Terminal
