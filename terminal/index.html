@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SEVASTOLINK</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="/postload.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+  <link rel="stylesheet" href="../postload.css" />
 
   <style>
     html, body {
@@ -144,8 +144,8 @@
         </div>
       </div>
     </div>
-    <img src="/images/scanlines.png" id="scan" />
-    <img src="/images/bezel.png" id="bezel" />
+    <img src="../images/scanlines.png" id="scan" />
+    <img src="../images/bezel.png" id="bezel" />
   </div>
 
   <script>
@@ -156,7 +156,7 @@
       document.getElementById('grid').style.display = 'none';
       document.getElementById('interface').style.display = 'block';
       const script = document.createElement('script');
-      script.src = '/postload.js';
+      script.src = '../postload.js';
       script.type = 'module';
       document.body.appendChild(script);
     }, 225);
@@ -166,7 +166,7 @@
   // added by me: Check if the page was reloaded
   const navigationEntries = performance.getEntriesByType("navigation");
   if (navigationEntries.length > 0 && navigationEntries[0].type === "reload") {
-    window.location.replace("/");
+    window.location.replace("../");
   }
   </script>
 
