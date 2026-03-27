@@ -8,7 +8,7 @@ List of modifications made:
 - made it easier to customize the content by using `config.js`
 - loading bar moves in uneven chunks
 
-### Preview
+### Preview https://yeeter727.github.io/sevastolink-web/terminal/
 ![logo preview](/images/sevastolink_logo_repeat.gif)
 ![boot preview](/images/boot_fullscreen_preview.png)
 ![term preview](/images/term_fullscreen_preview.png)
