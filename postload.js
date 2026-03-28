@@ -65,26 +65,31 @@ function activateFolder(folder) {
     body.innerHTML = config.shared1_body;
   }
   else if (title_id === 'folder3' || title === config.notes_folder_title) {
-  title_object.textContent = config.notes_folder_title;
-  header.textContent = config.notes1_title;
-  header2.textContent = config.notes2_title;
-  body.innerHTML = config.notes1_body;
+    title_object.textContent = config.notes_folder_title;
+    header.textContent = config.notes1_title;
+    header2.textContent = config.notes2_title;
+    body.innerHTML = config.notes1_body;
   }
   else if (title_id === 'folder4' || title === config.utility_folder_title) {
     title_object.textContent = config.utility_folder_title;
     header.textContent = config.utility1_title;
     header2.textContent = config.utility2_title;
     body.innerHTML = config.utility1_body;
-    body.style.padding  = '0';
-    body.style.flex     = '1';
-    body.style.position = 'relative';
-    startPong();
   }
   else {
     header.textContent = title;
     body.innerHTML = `<p>Loading...</p>`;
   }
   
+  const active_header_title = document.querySelector('.header-item.active').textContent
+  if (active_header_title === 'PONG') {
+    body.innerHTML = '<canvas id="pongCanvas"></canvas>'
+    body.style.padding  = '0';
+    body.style.flex     = '1';
+    body.style.position = 'relative';
+    startPong();
+  }
+
   headerItems.forEach(item => {
     const text = item.textContent.trim();
     if (!text) {
@@ -143,8 +148,18 @@ function activateHeader(item) {
   headerItems.forEach(h => h.classList.remove('active'));
   item.classList.add('active');
 
+  body.style.padding  = '4vh 2vw 2vh 2vw';
+  body.style.flex     = '';
+  body.style.position = '';
 
-  if (title === config.personal1_title) {
+  if (title === 'PONG') {
+    body.innerHTML = '<canvas id="pongCanvas"></canvas>'
+    body.style.padding  = '0';
+    body.style.flex     = '1';
+    body.style.position = 'relative';
+    startPong();
+  }
+  else if (title === config.personal1_title) {
     body.innerHTML = config.personal1_body;
   }
   else if (title === config.personal2_title) {
@@ -164,16 +179,9 @@ function activateHeader(item) {
   } 
   else if (title === config.utility1_title) {
     body.innerHTML = config.utility1_body;
-    body.style.padding  = '0';
-    body.style.flex     = '1';
-    body.style.position = 'relative';
-    startPong();
   } 
   else if (title === config.utility2_title) {
     body.innerHTML = config.utility2_body;
-    body.style.padding  = '4vh 2vw 2vh 2vw';
-    body.style.flex     = '';
-    body.style.position = '';
   } 
   else {
     body.innerHTML = `<p>Loading...</p>`;

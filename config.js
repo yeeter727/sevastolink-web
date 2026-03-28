@@ -40,18 +40,15 @@ Be assured that Seegson's APOLLO central A.I and "Working Joe" androids will be 
 
 Seegson Corp.`;
 
+// editable notes page
 export const notes1_title = 'My notes';
 export const notes1_body = '<textarea id="mynotes" placeholder="Write your notes here... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Notice: All content will be reviewed by APOLLO."></textarea>';
 
 export const notes2_title = 'From Admin';
 export const notes2_body = `Check out Mike's art page! <a href="https://x.com/MikeTanaka2095">link</a>`;
 
-// utility1 should be reserved for pong, unless you make changes to the code in postload.js
-export const utility1_title = 'PONG';
-export const utility1_body = `<canvas id="pongCanvas"></canvas>`;
-
-export const utility2_title = 'System Info';
-export const utility2_body = `================== SEVASTOLINK SYSINFO ==================
+export const utility1_title = 'System Info';
+export const utility1_body = `================== SEVASTOLINK SYSINFO ==================
 HOSTNAME:          SEVASTOLINK-TERM55
 MODEL:             SL-X7 Workstation
 OS VERSION:        Sevastolink OS 9.3.1
@@ -66,6 +63,10 @@ TEMPERATURE:       CPU 41°C :: GPU 38°C
 CONNECTED DEVICES: 2 HIDs :: 1 Display :: 1 Unregistered Access Tuner
 LOGGED USERS:      porter_admin, seegson_bot
 ========================================================`;
+
+// Note: setting any entry title to PONG will make that entry the pong game
+export const utility2_title = 'PONG';
+export const utility2_body = `this is pong`;
 
 
 // customizes the text of the top bar
