@@ -46,6 +46,7 @@ export const notes1_body = '<textarea id="mynotes" placeholder="Write your notes
 export const notes2_title = 'From Admin';
 export const notes2_body = `Check out Mike's art page! <a href="https://x.com/MikeTanaka2095">link</a>`;
 
+// utility1 should be reserved for pong, unless you make changes to the code in postload.js
 export const utility1_title = 'PONG';
 export const utility1_body = `<canvas id="pongCanvas"></canvas>`;
 

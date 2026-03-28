@@ -9,9 +9,14 @@ List of modifications made:
 - loading bar moves in uneven chunks
 
 ### Preview https://yeeter727.github.io/sevastolink-web/
-![logo preview](/images/sevastolink_logo_repeat.gif)
+![logo preview](/images/sevastolink_logo_n_repeat.gif)
 ![boot preview](/images/boot_fullscreen_preview.png)
-![term preview, test](/images/term_fullscreen_preview.png)
+![term preview](/images/term_fullscreen_preview.png)
+
+### Customization
+This website can be easily customized using the following methods:
+- Folder titles, entries, and entry content can all be changed in `config.js`
+- The boot screen time can be changed at the top of `style.css`
 
 ### Disclaimer
  Note: I take no credit in the majority of these files nor do I expect to be credited, as the majority of these files were sourced from this repo: https://github.com/ahmedmunzir/Sevastolink-Terminal

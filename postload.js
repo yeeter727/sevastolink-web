@@ -50,26 +50,27 @@ function activateFolder(folder) {
   body.style.position = '';
 
   const title_object = folder.querySelector('.folder-text');
-  const title = folder.querySelector('.folder-text').textContent;
-  if (title === 'f1' || title === config.personal_folder_title) {
+  const title = title_object.textContent;
+  const title_id = title_object ? title_object.id : null;
+  if (title_id === 'folder1' || title === config.personal_folder_title) {
     title_object.textContent = config.personal_folder_title;
     header.textContent = config.personal1_title;
     header2.textContent = config.personal2_title;
     body.innerHTML = config.personal1_body;
   }
-  else if (title === 'f2' || title === config.shared_folder_title) {
+  else if (title_id === 'folder2' || title === config.shared_folder_title) {
     title_object.textContent = config.shared_folder_title;
     header.textContent = config.shared1_title;
     header2.textContent = config.shared2_title;
     body.innerHTML = config.shared1_body;
   }
-  else if (title === 'f3' || title === config.notes_folder_title) {
+  else if (title_id === 'folder3' || title === config.notes_folder_title) {
   title_object.textContent = config.notes_folder_title;
   header.textContent = config.notes1_title;
   header2.textContent = config.notes2_title;
   body.innerHTML = config.notes1_body;
   }
-  else if (title === 'f4' || title === config.utility_folder_title) {
+  else if (title_id === 'folder4' || title === config.utility_folder_title) {
     title_object.textContent = config.utility_folder_title;
     header.textContent = config.utility1_title;
     header2.textContent = config.utility2_title;
@@ -108,18 +109,19 @@ function recalculateInactiveLine() {
 
 // preemptively replace folder titles
 folders.forEach(f => {
-     const title = f.querySelector('.folder-text').textContent;
      const title_object = f.querySelector('.folder-text');
-     if (title === 'f1' || title === config.personal_folder_title) {
+     const title = title_object.textContent;
+     const title_id = title_object ? title_object.id : null;
+     if (title_id === 'folder1' || title === config.personal_folder_title) {
        title_object.textContent = config.personal_folder_title;
      }
-     else if (title === 'f2' || title === config.shared_folder_title) {
+     else if (title_id === 'folder2' || title === config.shared_folder_title) {
        title_object.textContent = config.shared_folder_title;
      }
-     else if (title === 'f3' || title === config.notes_folder_title) {
+     else if (title_id === 'folder3' || title === config.notes_folder_title) {
        title_object.textContent = config.notes_folder_title;
      }
-     else if (title === 'f4' || title === config.utility_folder_title) {
+     else if (title_id === 'folder4' || title === config.utility_folder_title) {
        title_object.textContent = config.utility_folder_title;
      }
 });
