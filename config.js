@@ -1,3 +1,6 @@
+// customizes the text of the top bar
+export const top_bar_content = `PERSONAL TERMINAL`;
+
 //// folder titles
 export const personal_folder_title = 'PERSONAL';
 export const shared_folder_title = 'SHARED';
@@ -67,7 +70,3 @@ LOGGED USERS:      porter_admin, seegson_bot
 // Note: setting any entry title to PONG will make that entry the pong game
 export const utility2_title = 'PONG';
 export const utility2_body = `this is pong`;
-
-
-// customizes the text of the top bar
-export const top_bar_content = `PERSONAL TERMINAL`;
