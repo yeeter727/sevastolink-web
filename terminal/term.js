@@ -1,4 +1,5 @@
-// postload.js
+//// terminal/term.js
+// handles main terminal screen and pong game
 
 const folders = document.querySelectorAll('.folder');
 const header  = document.getElementById('content-header-bar');
@@ -6,7 +7,7 @@ const header2  = document.getElementById('content-header-bar2');
 const body    = document.getElementById('content-body');
 const headerItems = document.querySelectorAll('.header-item');
 
-import * as config from "./config.js";
+import * as config from "../config.js";
 
 function calculateVLength(folder) {
   const activeHeader = document.querySelector('.header-item.active');

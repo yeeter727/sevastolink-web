@@ -1,3 +1,6 @@
+//// config.js
+// customize various options here
+
 // customizes the text of the top bar
 export const top_bar_content = `PERSONAL TERMINAL`;
 

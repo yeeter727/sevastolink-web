@@ -1,19 +1,19 @@
 @font-face {
   font-family: 'Sevastolink';
-  src: url('fonts/jixellation.ttf') format('truetype');
+  src: url('../fonts/jixellation.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Seegson';
-  src: url('fonts/sound-system.otf.woff2') format('woff2');
+  src: url('../fonts/sound-system.otf.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Sevastopol Interface Regular';
-  src: url('fonts/sevastopol_interface.woff2') format('woff2');
+  src: url('../fonts/sevastopol_interface.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
