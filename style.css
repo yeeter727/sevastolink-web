@@ -1,3 +1,5 @@
+/* style.css */
+
 /* You can change the amount of time spent on the boot screen here */
 :root {
   --boot-screen-time: 2s;
@@ -151,4 +153,49 @@ html, body {
 .fade-in {
   opacity: 1 !important;
   pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+
+  #header {
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  #subheading {
+    position: absolute;
+    top: 6vh;                
+    right: 5vw;              
+    font-size: 2.5vw;
+    white-space: nowrap;
+  }
+
+  .progress-container {
+    position: absolute;
+    bottom: 30vh;           
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85vw;             
+    max-width: 700px;
+    height: 2vh;             
+    background: #134213;
+    border: 0.4vh solid #05b669;
+    box-sizing: border-box;
+    z-index: 0;
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 18vh;           
+    left: 50%;
+    width: 70vw;
+    transform: translateX(-50%);
+    font-size: 5vw;        
+    z-index: 0;
+  }
+
+
 }

@@ -1,3 +1,5 @@
+/* term.css */
+
 @font-face {
   font-family: 'Sevastolink';
   src: url('../fonts/jixellation.ttf') format('truetype');
@@ -57,7 +59,7 @@ html, body {
 }
 
 .top-bar {
-  position: absolute;
+  position: relative;
   top: 7.5vh;
   left: 50%;
   transform: translateX(-50%);
@@ -83,13 +85,18 @@ html, body {
 }
 
 .top-bar-text {
-  position: absolute;
-  top: 8.2vh;
-  left: 6vw;
-  font-size: 1.25vw;
+  position: relative;
+  left: 1.2vw;
+  top: 0.5vw;
+  margin: 0 auto;
+  font-size: clamp(0.6rem, 1.2vw, 1.25vw);
+  line-height: 1.2;
   color: #000;
-  z-index: 0;
-  white-space: nowrap;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .folders-label {
@@ -303,8 +310,6 @@ html, body {
   background: transparent;
   display: flex;
   flex-direction: column;
-
- 
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -325,11 +330,13 @@ html, body {
   font-size: 1.6vw;
   color: #ccd5d4;
   line-height: 1.1;
-  white-space: pre-line;
-
- 
-  overflow: hidden;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  max-height: 50vh;
 }
+
 #pongCanvas {
   width: 100%;
   height: 100%;
@@ -356,4 +363,129 @@ html, body {
 
 #bezel {
   z-index: 11;
+}
+
+/* mobile view */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #screen {
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .top-bar {
+    position: relative;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: calc(100% - 24px);
+    height: auto;
+    min-height: 28px;
+    margin: 12px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #05b669;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .top-bar-extension {
+    display: none !important;
+  }
+
+  .top-bar-text {
+    position: static;
+    left: auto;
+    top: auto;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: clamp(0.55rem, 3vw, 0.85rem);
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    color: #000;
+    pointer-events: none;
+  }
+
+  .folders-label {
+    position: static;
+    display: block;
+    margin: 20px 0 0 12px;
+    font-size: 0.8rem;
+    color: #05b669;
+  }
+
+  .folders-list {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 10px;
+    width: calc(100% - 24px);
+    margin: 12px auto 0;
+  }
+
+  .folder {
+    width: 100%;
+    min-width: 0;
+    height: 60px;
+    font-size: 0.75rem;
+  }
+
+  .folder.active::before,
+  .folder.active::after,
+  .connector-line,
+  .connector-vertical,
+  .connector-top-right,
+  .inactive-connector-vertical,
+  .inactive-connector-top-right {
+    display: none !important;
+  }
+
+  .header-list {
+    position: static;
+    width: calc(100% - 24px);
+    margin: 14px auto 0;
+    height: auto;
+  }
+
+  .header-item {
+    width: 100%;
+    min-height: 30px;
+    font-size: 0.72rem;
+    padding: 0.55rem 0.7rem;
+    box-sizing: border-box;
+  }
+
+  .content-panel {
+    position: static;
+    width: calc(100% - 24px);
+    margin: 14px auto 18px;
+    min-height: 220px;
+  }
+
+  .content-body {
+    padding: 14px 12px;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #scan,
+  #bezel {
+    display: none;
+  }
+
+  #mynotes {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
 }
