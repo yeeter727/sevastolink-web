@@ -96,7 +96,6 @@ html, body {
   white-space: normal;
   word-break: break-word;
   z-index: 1;
-  pointer-events: none;
 }
 
 .folders-label {
@@ -412,7 +411,6 @@ html, body {
     white-space: normal;
     word-break: break-word;
     color: #000;
-    pointer-events: none;
   }
 
   .folders-label {
